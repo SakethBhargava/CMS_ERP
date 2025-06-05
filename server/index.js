@@ -12,7 +12,7 @@ import { addDummyAdmin } from "./controller/adminController.js";
 dotenv.config();
 
 const app = express();
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT;
 
 app.use(bodyParser.json({ limit: "30mb", extended: true }));
 app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
@@ -36,5 +36,6 @@ mongoose
     console.log("MongoDB connected!");
     addDummyAdmin();
     app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+    alert("get into the route /login/adminlogin to login as admin Use the below credentials:\nUsername: ADMDUMMY\nPassword: 123");
   })
   .catch((error) => console.error("MongoDB connection error:", error));
